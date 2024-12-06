@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>
+			Home Page
+		</title>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+						integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	</head>
+	<body>
+
+		<!DOCTYPE html>
+		<html xmlns:th="http://www.thymeleaf.org">
+
+		<head>
+			<title>
+				Employee details
+			</title>
+			<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+				integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+		</head>
+
+		<body>
+			
+		     <div class="container">
+				<div class="row">
+					<a th:href="@{/managerhome}" class="btn btn-danger btn-sb" style="margin-bottom: -35px;margin-left: 1090px;margin-top: 20px;">X</a>
+
+					<h1 style="margin-top: 50px;">Employee Details</h1>
+				</div>
+				<div class="row">
+					
+				</div>
+				<table class="table table-striped table-bordered">
+					<thead class="table-dark">
+						<tr>
+							<th>Id</th>
+							<th>Name</th>
+							<th>Department</th>
+		       				<th>Role</th>
+							<th>Salary</th>
+							<th>Actions</th>
+						</tr>
+					</thead>
+					<tbody >
+						<tr th:each="employee:${employee}">
+							<td th:text="${employee.id}"></td>
+							<td th:text="${employee.name}"></td>
+							<td th:text="${employee.department}"></td>
+							<td th:text="${employee.role}"></td>	
+							<td th:text="${employee.salary}"></td>
+							<td>
+								<a th:href="@{/manager/employeeupdate/{id} (id=${employee.id})}" class="btn btn-primary">Update</a>
+							</td>
+						</tr>
+					</tbody>
+					
+				</table>
+			 </div>
+		</body>
+
+		</html>
+
+	</body>
+</html>
